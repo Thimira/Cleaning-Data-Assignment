@@ -1,6 +1,6 @@
 # Code Book for the tidy dataset
 
-The tidy dataset (tidy_data.txt) - which will be created in *<your_working_dir>/tidyData/* after running the run_analysis.R - will be created in the standard space separated format by using the write.table function, and can be read back in to R using the following code:
+The tidy dataset (tidy_data.txt) - which will be created in *your_working_dir/tidyData/* after running the run_analysis.R - will be created in the standard space separated format by using the write.table function, and can be read back in to R using the following code:
 
     tidyData <- read.table("tidy_data.txt")
 
