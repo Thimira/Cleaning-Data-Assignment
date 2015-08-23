@@ -68,10 +68,11 @@ names(complete_data_summerized) <- gsub("Jerk", "-Jerk", names(complete_data_sum
 names(complete_data_summerized) <- gsub("Mag", "Magnitude", names(complete_data_summerized))
 names(complete_data_summerized) <- gsub("[.]std", "-StandardDeviation", names(complete_data_summerized))
 names(complete_data_summerized) <- gsub("[.]mean", "-Average", names(complete_data_summerized))
+names(complete_data_summerized) <- gsub("BodyBody", "Body", names(complete_data_summerized))
 
 message("Writing data...")
 
 tidyDataFile <- file.path(tidyDataPath, "tidy_data.txt")
-write.table(complete_data_summerized, tidyDataFile, row.names = FALSE, quote = FALSE, sep = ",")
+write.table(complete_data_summerized, tidyDataFile, row.names = FALSE, quote = FALSE)
 
 message("Tidy dataset written to : ", tidyDataFile)
