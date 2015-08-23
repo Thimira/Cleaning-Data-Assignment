@@ -53,6 +53,22 @@ complete_data$Activity <- factor(complete_data$Activity, levels = activity_level
 complete_data_by_subject_and_activity <- complete_data %>% group_by(Subject, Activity)
 complete_data_summerized <- complete_data_by_subject_and_activity %>% summarise_each(funs(mean))
 
+names(complete_data_summerized) <- gsub("[.][.]", "", names(complete_data_summerized))
+names(complete_data_summerized) <- gsub("[.]X", "-X-Axis", names(complete_data_summerized))
+names(complete_data_summerized) <- gsub("[.]Y", "-Y-Axis", names(complete_data_summerized))
+names(complete_data_summerized) <- gsub("[.]Z", "-Z-Axis", names(complete_data_summerized))
+names(complete_data_summerized) <- gsub("tBody", "Body", names(complete_data_summerized))
+names(complete_data_summerized) <- gsub("tGravity", "Gravity", names(complete_data_summerized))
+names(complete_data_summerized) <- gsub("fBody", "FFT-Body", names(complete_data_summerized))
+names(complete_data_summerized) <- gsub("fGravity", "FFT-Gravity", names(complete_data_summerized))
+names(complete_data_summerized) <- gsub("fGravity", "FFT-Gravity", names(complete_data_summerized))
+names(complete_data_summerized) <- gsub("Acc", "-Acceleration", names(complete_data_summerized))
+names(complete_data_summerized) <- gsub("Gyro", "-Gyro", names(complete_data_summerized))
+names(complete_data_summerized) <- gsub("Jerk", "-Jerk", names(complete_data_summerized))
+names(complete_data_summerized) <- gsub("Mag", "Magnitude", names(complete_data_summerized))
+names(complete_data_summerized) <- gsub("[.]std", "-StandardDeviation", names(complete_data_summerized))
+names(complete_data_summerized) <- gsub("[.]mean", "-Average", names(complete_data_summerized))
+
 message("Writing data...")
 
 tidyDataFile <- file.path(tidyDataPath, "tidy_data.txt")
